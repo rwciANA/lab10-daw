@@ -59,8 +59,10 @@ export class App {
   }
 
   rendirse() {
-    this.juegoTerminado = true;
-    this.gano = false;
+    if (confirm('¿Estás seguro de que quieres rendirte?')) {
+      this.juegoTerminado = true;
+      this.gano = false;
+    }
   }
 
   get pista(): string {
