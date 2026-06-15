@@ -58,6 +58,11 @@ export class App {
     }
   }
 
+  rendirse() {
+    this.juegoTerminado = true;
+    this.gano = false;
+  }
+
   get pista(): string {
     if (!this.pistaUsada) return '';
     const letrasOcultas = this.palabraSecreta

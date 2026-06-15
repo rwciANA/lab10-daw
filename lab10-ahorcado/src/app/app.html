@@ -25,6 +25,10 @@
     }
   </div>
 
+  @if (!juegoTerminado) {
+    <button class="rendirse" (click)="rendirse()">Rendirse</button>
+  }
+
   <div class="letras-incorrectas">
     Letras incorrectas: {{ letrasIncorrectas.join(', ') }}
   </div>

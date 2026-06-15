@@ -147,6 +147,22 @@ h1 {
   opacity: 0.6;
 }
 
+.rendirse {
+  background: transparent;
+  color: #e94560;
+  border: 1px solid #e94560;
+  padding: 6px 18px;
+  font-size: 0.85rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.rendirse:hover {
+  background: #e94560;
+  color: #fff;
+}
+
 .pista {
   display: flex;
   flex-direction: column;
