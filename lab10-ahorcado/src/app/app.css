@@ -7,12 +7,30 @@
   color: #eee;
   font-family: 'Segoe UI', sans-serif;
   padding: 20px;
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-10px); }
+  75% { transform: translateX(10px); }
 }
 
 h1 {
   color: #e94560;
   font-size: 2rem;
   margin-bottom: 20px;
+  animation: pulse 2s infinite;
 }
 
 .juego {
@@ -24,11 +42,12 @@ h1 {
 
 .ahorcado pre {
   background: #16213e;
-  color: #0f3460;
-  font-size: 1rem;
-  line-height: 1.2;
+  color: #e94560;
+  font-size: 1.1rem;
+  line-height: 1.3;
   padding: 15px;
   border-radius: 10px;
+  transition: all 0.3s ease;
 }
 
 .palabra {
@@ -36,6 +55,7 @@ h1 {
   letter-spacing: 12px;
   font-weight: bold;
   color: #fff;
+  transition: all 0.3s ease;
 }
 
 .puntaje {
@@ -140,6 +160,7 @@ h1 {
 .mensaje-final {
   text-align: center;
   margin-top: 10px;
+  animation: fadeIn 0.5s ease;
 }
 
 .mensaje-final p {
@@ -150,10 +171,12 @@ h1 {
 
 .ganaste {
   color: #4ecca3;
+  animation: pulse 1s infinite;
 }
 
 .perdiste {
   color: #e94560;
+  animation: shake 0.5s ease;
 }
 
 .mensaje-final button {
