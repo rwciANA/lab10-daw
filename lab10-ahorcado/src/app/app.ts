@@ -29,6 +29,7 @@ export class App {
   gano = false;
   victorias = 0;
   derrotas = 0;
+  pistaUsada = false;
 
   constructor() {
     this.iniciarJuego();
@@ -41,6 +42,26 @@ export class App {
     }
   }
 
+  get pista(): string {
+    if (!this.pistaUsada) return '';
+    const letrasOcultas = this.palabraSecreta
+      .split('')
+      .filter(l => !this.letrasAdivinadas.includes(l));
+    if (letrasOcultas.length === 0) return 'No hay más pistas';
+    return `Pista: la palabra tiene ${this.palabraSecreta.length} letras`;
+  }
+
+  pedirPista() {
+    if (this.pistaUsada || this.juegoTerminado) return;
+    const letrasOcultas = this.palabraSecreta
+      .split('')
+      .filter(l => !this.letrasAdivinadas.includes(l));
+    if (letrasOcultas.length > 0) {
+      this.adivinarLetra(letrasOcultas[0]);
+      this.pistaUsada = true;
+    }
+  }
+
   iniciarJuego() {
     const indice = Math.floor(Math.random() * this.palabras.length);
     this.palabraSecreta = this.palabras[indice];
@@ -49,6 +70,7 @@ export class App {
     this.vidasRestantes = 6;
     this.juegoTerminado = false;
     this.gano = false;
+    this.pistaUsada = false;
   }
 
   reiniciarJuego() {

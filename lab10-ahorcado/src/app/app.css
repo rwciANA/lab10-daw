@@ -103,6 +103,40 @@ h1 {
   opacity: 0.6;
 }
 
+.pista {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.pista button {
+  background: #533483;
+  color: #fff;
+  border: none;
+  padding: 8px 20px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.pista button:hover:not(:disabled) {
+  background: #6c4fa7;
+  transform: scale(1.05);
+}
+
+.pista button:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
+.pista p {
+  color: #aaa;
+  font-size: 0.9rem;
+}
+
 .mensaje-final {
   text-align: center;
   margin-top: 10px;

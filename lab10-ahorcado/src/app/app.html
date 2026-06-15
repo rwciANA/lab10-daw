@@ -22,6 +22,15 @@
     Letras incorrectas: {{ letrasIncorrectas.join(', ') }}
   </div>
 
+  <div class="pista">
+    <button (click)="pedirPista()" [disabled]="pistaUsada || juegoTerminado">
+      Pedir pista
+    </button>
+    @if (pista) {
+      <p>{{ pista }}</p>
+    }
+  </div>
+
   <div class="teclado">
     @for (letra of 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'; track letra) {
       <button
