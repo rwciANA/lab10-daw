@@ -79,8 +79,19 @@ h1 {
 }
 
 .vidas {
-  font-size: 1.1rem;
+  font-size: 1.8rem;
+  display: flex;
+  gap: 8px;
+}
+
+.corazon {
   color: #e94560;
+  transition: all 0.3s ease;
+}
+
+.corazon.perdido {
+  color: #333;
+  transform: scale(0.8);
 }
 
 .letras-incorrectas {
