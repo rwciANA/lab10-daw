@@ -16,4 +16,11 @@ export class App {
     'INTELIGENCIA', 'SISTEMA', 'APLICACION',
     'TECNOLOGIA', 'INFORMATICA'
   ];
+
+  palabraSecreta = '';
+  letrasAdivinadas: string[] = [];
+  letrasIncorrectas: string[] = [];
+  vidasRestantes = 6;
+  juegoTerminado = false;
+  gano = false;
 }
