@@ -195,3 +195,10 @@ h1 {
   background: #3bb88f;
   transform: scale(1.05);
 }
+
+@media (max-width: 600px) {
+  h1 { font-size: 1.5rem; }
+  .palabra { font-size: 1.8rem; letter-spacing: 8px; }
+  .teclado button { width: 34px; height: 34px; font-size: 0.85rem; }
+  .ahorcado pre { font-size: 0.85rem; }
+}
