@@ -1,5 +1,9 @@
 <h1>Juego del Ahorcado</h1>
 
+<div class="instrucciones">
+  Adivina la palabra oculta seleccionando letras. Tienes 6 vidas.
+</div>
+
 <div class="juego">
   <div class="ahorcado">
     <pre>{{ dibujoAhorcado }}</pre>
@@ -41,6 +45,8 @@
       <p>{{ pista }}</p>
     }
   </div>
+
+  <p class="teclado-label">Selecciona o presiona una letra en tu teclado</p>
 
   <div class="teclado">
     @for (letra of 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'; track letra) {
