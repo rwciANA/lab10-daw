@@ -12,13 +12,26 @@ export class App {
     this.manejarTeclado(event);
   }
   readonly palabras = [
-    'ALGORITMO', 'COMPILADOR', 'PROCESADOR',
-    'VARIABLE', 'SERVIDOR', 'REPOSITORIO',
-    'ENCRIPTACION', 'CIBERSEGURIDAD', 'NAVEGADOR',
-    'ARQUITECTURA', 'INTERFAZ', 'PROTOCOLO',
-    'MEMORIA', 'PROGRAMACION', 'LENGUAJE',
-    'INTELIGENCIA', 'SISTEMA', 'APLICACION',
-    'TECNOLOGIA', 'INFORMATICA'
+    { palabra: 'ALGORITMO', categoria: 'Programación' },
+    { palabra: 'COMPILADOR', categoria: 'Programación' },
+    { palabra: 'PROCESADOR', categoria: 'Hardware' },
+    { palabra: 'VARIABLE', categoria: 'Programación' },
+    { palabra: 'SERVIDOR', categoria: 'Redes' },
+    { palabra: 'REPOSITORIO', categoria: 'Desarrollo' },
+    { palabra: 'ENCRIPTACION', categoria: 'Seguridad' },
+    { palabra: 'CIBERSEGURIDAD', categoria: 'Seguridad' },
+    { palabra: 'NAVEGADOR', categoria: 'Web' },
+    { palabra: 'ARQUITECTURA', categoria: 'Desarrollo' },
+    { palabra: 'INTERFAZ', categoria: 'Diseño' },
+    { palabra: 'PROTOCOLO', categoria: 'Redes' },
+    { palabra: 'MEMORIA', categoria: 'Hardware' },
+    { palabra: 'PROGRAMACION', categoria: 'Programación' },
+    { palabra: 'LENGUAJE', categoria: 'Programación' },
+    { palabra: 'INTELIGENCIA', categoria: 'IA' },
+    { palabra: 'SISTEMA', categoria: 'Informática' },
+    { palabra: 'APLICACION', categoria: 'Desarrollo' },
+    { palabra: 'TECNOLOGIA', categoria: 'Informática' },
+    { palabra: 'INFORMATICA', categoria: 'Informática' }
   ];
 
   palabraSecreta = '';
@@ -30,6 +43,8 @@ export class App {
   victorias = 0;
   derrotas = 0;
   pistaUsada = false;
+  ultimoIndice = -1;
+  categoriaActual = '';
 
   constructor() {
     this.iniciarJuego();
@@ -63,8 +78,13 @@ export class App {
   }
 
   iniciarJuego() {
-    const indice = Math.floor(Math.random() * this.palabras.length);
-    this.palabraSecreta = this.palabras[indice];
+    let indice = Math.floor(Math.random() * this.palabras.length);
+    while (indice === this.ultimoIndice) {
+      indice = Math.floor(Math.random() * this.palabras.length);
+    }
+    this.ultimoIndice = indice;
+    this.palabraSecreta = this.palabras[indice].palabra;
+    this.categoriaActual = this.palabras[indice].categoria;
     this.letrasAdivinadas = [];
     this.letrasIncorrectas = [];
     this.vidasRestantes = 6;
