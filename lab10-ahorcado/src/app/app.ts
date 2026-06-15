@@ -42,6 +42,7 @@ export class App {
   gano = false;
   victorias = 0;
   derrotas = 0;
+  record = 0;
   pistaUsada = false;
   ultimoIndice = -1;
   categoriaActual = '';
@@ -94,8 +95,12 @@ export class App {
   }
 
   reiniciarJuego() {
-    if (this.gano) this.victorias++;
-    else if (this.juegoTerminado) this.derrotas++;
+    if (this.gano) {
+      this.victorias++;
+      if (this.victorias > this.record) this.record = this.victorias;
+    } else if (this.juegoTerminado) {
+      this.derrotas++;
+    }
     this.iniciarJuego();
   }
 

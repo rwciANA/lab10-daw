@@ -14,6 +14,9 @@
   <div class="puntaje">
     <span class="victorias">Victorias: {{ victorias }}</span>
     <span class="derrotas">Derrotas: {{ derrotas }}</span>
+    @if (record > 0) {
+      <span class="record">Récord: {{ record }}</span>
+    }
   </div>
 
   <div class="vidas">
