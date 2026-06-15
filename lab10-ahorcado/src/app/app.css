@@ -90,8 +90,17 @@ h1 {
 }
 
 .teclado button:disabled {
-  opacity: 0.3;
   cursor: default;
+}
+
+.teclado button.acertada {
+  background: #4ecca3;
+  opacity: 0.6;
+}
+
+.teclado button.fallada {
+  background: #e94560;
+  opacity: 0.6;
 }
 
 .mensaje-final {

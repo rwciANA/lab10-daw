@@ -27,6 +27,8 @@
       <button
         (click)="adivinarLetra(letra)"
         [disabled]="juegoTerminado || letrasAdivinadas.includes(letra) || letrasIncorrectas.includes(letra)"
+        [class.acertada]="letrasAdivinadas.includes(letra)"
+        [class.fallada]="letrasIncorrectas.includes(letra)"
       >
         {{ letra }}
       </button>
