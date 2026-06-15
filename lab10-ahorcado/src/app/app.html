@@ -9,6 +9,11 @@
     {{ palabraOculta }}
   </div>
 
+  <div class="puntaje">
+    <span class="victorias">Victorias: {{ victorias }}</span>
+    <span class="derrotas">Derrotas: {{ derrotas }}</span>
+  </div>
+
   <div class="vidas">
     Vidas restantes: {{ vidasRestantes }}
   </div>
@@ -35,7 +40,7 @@
       } @else {
         <p class="perdiste">¡Perdiste! La palabra era {{ palabraSecreta }}</p>
       }
-      <button (click)="iniciarJuego()">Jugar de nuevo</button>
+      <button (click)="reiniciarJuego()">Jugar de nuevo</button>
     </div>
   }
 </div>

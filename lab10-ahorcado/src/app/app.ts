@@ -23,6 +23,8 @@ export class App {
   vidasRestantes = 6;
   juegoTerminado = false;
   gano = false;
+  victorias = 0;
+  derrotas = 0;
 
   constructor() {
     this.iniciarJuego();
@@ -36,6 +38,12 @@ export class App {
     this.vidasRestantes = 6;
     this.juegoTerminado = false;
     this.gano = false;
+  }
+
+  reiniciarJuego() {
+    if (this.gano) this.victorias++;
+    else if (this.juegoTerminado) this.derrotas++;
+    this.iniciarJuego();
   }
 
   get dibujoAhorcado(): string {
