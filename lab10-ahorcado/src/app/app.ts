@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -7,6 +7,10 @@ import { Component } from '@angular/core';
   styleUrl: './app.css'
 })
 export class App {
+  @HostListener('document:keydown', ['$event'])
+  onKeydown(event: KeyboardEvent) {
+    this.manejarTeclado(event);
+  }
   readonly palabras = [
     'ALGORITMO', 'COMPILADOR', 'PROCESADOR',
     'VARIABLE', 'SERVIDOR', 'REPOSITORIO',
@@ -28,6 +32,13 @@ export class App {
 
   constructor() {
     this.iniciarJuego();
+  }
+
+  manejarTeclado(event: KeyboardEvent) {
+    const letra = event.key.toUpperCase();
+    if (letra.length === 1 && letra >= 'A' && letra <= 'Z') {
+      this.adivinarLetra(letra);
+    }
   }
 
   iniciarJuego() {
