@@ -1,1 +1,41 @@
 <h1>Juego del Ahorcado</h1>
+
+<div class="juego">
+  <div class="ahorcado">
+    <pre>{{ dibujoAhorcado }}</pre>
+  </div>
+
+  <div class="palabra">
+    {{ palabraOculta }}
+  </div>
+
+  <div class="vidas">
+    Vidas restantes: {{ vidasRestantes }}
+  </div>
+
+  <div class="letras-incorrectas">
+    Letras incorrectas: {{ letrasIncorrectas.join(', ') }}
+  </div>
+
+  <div class="teclado">
+    @for (letra of 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'; track letra) {
+      <button
+        (click)="adivinarLetra(letra)"
+        [disabled]="juegoTerminado || letrasAdivinadas.includes(letra) || letrasIncorrectas.includes(letra)"
+      >
+        {{ letra }}
+      </button>
+    }
+  </div>
+
+  @if (juegoTerminado) {
+    <div class="mensaje-final">
+      @if (gano) {
+        <p class="ganaste">¡Ganaste! La palabra era {{ palabraSecreta }}</p>
+      } @else {
+        <p class="perdiste">¡Perdiste! La palabra era {{ palabraSecreta }}</p>
+      }
+      <button (click)="iniciarJuego()">Jugar de nuevo</button>
+    </div>
+  }
+</div>

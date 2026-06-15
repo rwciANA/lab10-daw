@@ -38,6 +38,19 @@ export class App {
     this.gano = false;
   }
 
+  get dibujoAhorcado(): string {
+    const partes = [
+      '  +---+\n  |   |\n      |\n      |\n      |\n      |\n=========',
+      '  +---+\n  |   |\n  O   |\n      |\n      |\n      |\n=========',
+      '  +---+\n  |   |\n  O   |\n  |   |\n      |\n      |\n=========',
+      '  +---+\n  |   |\n  O   |\n /|   |\n      |\n      |\n=========',
+      '  +---+\n  |   |\n  O   |\n /|\\  |\n      |\n      |\n=========',
+      '  +---+\n  |   |\n  O   |\n /|\\  |\n /    |\n      |\n=========',
+      '  +---+\n  |   |\n  O   |\n /|\\  |\n / \\  |\n      |\n========='
+    ];
+    return partes[6 - this.vidasRestantes];
+  }
+
   get palabraOculta(): string {
     return this.palabraSecreta
       .split('')
